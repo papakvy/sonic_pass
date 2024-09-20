@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../lib/sonic_pass'
+require 'clipboard'
+
+length = ARGV[0] ? ARGV[0].to_i : 12
+count  = ARGV[1] ? ARGV[1].to_i : 1
+
+passwords = SonicPass.generate(length, count)
+
+# Copy the generated password to the clipboard
+if count == 1
+  Clipboard.copy(passwords[0])
+  puts "Password: #{passwords[0]} copied to clipboard"
+else
+  puts passwords.join("\n")
+end

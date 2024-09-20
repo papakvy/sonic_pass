@@ -1,8 +1,19 @@
+require:
+  - rubocop-minitest
+  - rubocop-rake
+
+inherit_gem:
+  rubocop-minitest:
+    - config/default.yml
+  rubocop-rake:
+    - config/default.yml
+
 AllCops:
-  TargetRubyVersion: 3.0
+  TargetRubyVersion: 3.x
+  NewCops: enable
 
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
+# Style/StringLiterals:
+#   EnforcedStyle: double_quotes
 
-Style/StringLiteralsInInterpolation:
-  EnforcedStyle: double_quotes
+# Style/StringLiteralsInInterpolation:
+#   EnforcedStyle: double_quotes
