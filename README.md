@@ -1,39 +1,75 @@
-# SonicPass
+Table of Contents
+-----------------
 
-TODO: Delete this and the text below, and describe your gem
+* [Overview](#overview)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Configuration](#configuration)
+* [Methods](#methods)
+* [Contributing](#contributing)
+* [License](#license)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/sonic_pass`. To experiment with that code, run `bin/console` for an interactive prompt.
+### Overview
 
-## Installation
+Sonic Pass is a Ruby gem designed to generate strong, unique passwords. It provides a simple and efficient way to create passwords of varying lengths, making it an ideal tool for developers and users alike.
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+### Installation
 
-Install the gem and add to the application's Gemfile by executing:
+To install the Sonic Pass gem, run the following command in your terminal:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```bash
+gem install sonic_pass
+```
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+Alternatively, you can add the following line to your Gemfile:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```ruby
+gem 'sonic_pass'
+```
 
-## Usage
+Then, run `bundle install` to install the gem.
 
-TODO: Write usage instructions here
+### Usage
 
-## Development
+To use the Sonic Pass gem, simply require it in your Ruby file:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```ruby
+require 'sonic_pass'
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+You can then generate a password using the `SonicPass.generate` method:
 
-## Contributing
+```ruby
+password = SonicPass.generate(length: 12)
+puts password
+```
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/sonic_pass. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/sonic_pass/blob/master/CODE_OF_CONDUCT.md).
+This will output a strong password of the specified length.
 
-## License
+### Configuration
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The Sonic Pass gem can be configured to use different character sets for password generation. The available character sets are:
 
-## Code of Conduct
+* `ALPHANUMERIC_CHARSETS`: A combination of uppercase letters, lowercase letters, and digits.
+* `SPECIAL_CHARSETS`: A set of special characters.
 
-Everyone interacting in the SonicPass project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/sonic_pass/blob/master/CODE_OF_CONDUCT.md).
+You can specify the character set to use when generating a password:
+
+```ruby
+password = SonicPass.generate(length: 12, charset: SonicPass::ALPHANUMERIC_CHARSETS)
+puts password
+```
+
+### Methods
+
+The Sonic Pass gem provides the following methods:
+
+* `SonicPass.generate(length: 12, charset: SonicPass::ALPHANUMERIC_CHARSETS)`: Generates a strong password of the specified length using the specified character set.
+
+### Contributing
+
+Contributions to the Sonic Pass gem are welcome. To contribute, please fork the repository and submit a pull request with your changes.
+
+### License
+
+The Sonic Pass gem is released under the MIT License. See the LICENSE file for details.

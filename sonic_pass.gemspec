@@ -6,20 +6,20 @@ require_relative 'lib/sonic_pass/version'
 Gem::Specification.new do |spec|
   spec.name = 'sonic_pass'
   spec.version = SonicPass::VERSION
-  spec.authors = ['rs-phunt']
-  spec.email = ['phunt@runsystem.net']
+  spec.authors = ['papakvy']
+  spec.email = ['tamphubkdn@gmail.com']
 
   spec.summary = 'A fast strong password generator'
   spec.description = 'Generate strong passwords quickly and easily.'
-  spec.homepage = 'http://example.com'
+  spec.homepage = 'https://github.com/papakvy/sonic_pass'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.0.0'
 
-  spec.metadata['allowed_push_host'] = 'http://example.com'
+  # spec.metadata['allowed_push_host'] = ''
 
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'http://example.com'
-  spec.metadata['changelog_uri'] = 'http://example.com'
+  spec.metadata['source_code_uri'] = 'https://github.com/papakvy/sonic_pass'
+  spec.metadata['changelog_uri'] = 'https://github.com/papakvy/sonic_pass'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
