@@ -7,18 +7,12 @@ class TestSonicPass < Minitest::Test
     refute_nil ::SonicPass::VERSION
   end
 
-  def test_generate_always_returns_array
-    assert_kind_of Array, SonicPass.generate
+  def test_generate_returns_strings_count_one
+    assert_kind_of String, SonicPass.generate
   end
 
-  def test_generate_always_returns_array_of_strings
-    assert_kind_of String, SonicPass.generate.first
-  end
-
-  def test_generate_always_returns_array_of_strings_of_specified_length
-    length = 3
-
-    assert_equal length, SonicPass.generate(length).first.length
+  def test_generate_always_returns_array_of_strings_with_count_more_than_one
+    assert_kind_of Array, SonicPass.generate(12, 2)
   end
 
   def test_generate_always_returns_array_of_strings_of_specified_count
@@ -27,19 +21,8 @@ class TestSonicPass < Minitest::Test
     assert_equal count, SonicPass.generate(3, count).length
   end
 
-  def test_generate_always_returns_array_of_strings_of_specified_length_and_count
-    length = 3
-    count = 2
-
-    assert_equal length, SonicPass.generate(length, count).first.length
-  end
-
-  def test_generate_return_defaults_length_twelved
-    assert_equal 12, SonicPass.generate.first.length
-  end
-
-  def test_generate_return_defaults_count_one
-    assert_equal 1, SonicPass.generate(12).length
+  def test_generate_return_defaults_length_eq_twelved
+    assert_equal 12, SonicPass.generate.length
   end
 
   def test_cli_sonic_pass_command_with_no_arguments
@@ -59,20 +42,4 @@ class TestSonicPass < Minitest::Test
 
     assert_equal 2, out.split("\n").length
   end
-
-  # private
-
-  # def run_cli_sonic_pass(length, count)
-  #   out = `bin/sonic_pass #{length} #{count}`.strip
-
-  #   assert_match(/copied\ to\ clipboard/, out)
-  #   out
-  # end
-
-  # def run_cli_sonic_pass_with_args(args)
-  #   out = `bin/sonic_pass #{args}`.strip
-
-  #   assert_match(/copied\ to\ clipboard/, out)
-  #   out
-  # end
 end

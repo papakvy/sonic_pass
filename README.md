@@ -1,11 +1,14 @@
+![Gem](https://img.shields.io/gem/v/sonic_pass?color=%25234cc61f&label=Gem%20version&logo=ruby&logoColor=red&link=https%3A%2F%2Frubygems.org%2Fgems%2Fsonic_pass)
+![Gem](https://img.shields.io/gem/dt/sonic_pass?color=%2330c754&label=Downloads&logo=rubygems&logoColor=red&link=https%3A%2F%2Frubygems.org%2Fgems%2Fsonic_pass)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/papakvy/sonic_pass/main.yml?branch=master&logo=rubocop&logoColor=red&label=Rubocop%20Lint)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/papakvy/sonic_pass/main.yml?branch=master&logo=rubocop&logoColor=red&label=Tests%20%F0%9F%A7%AA)
+
 Table of Contents
 -----------------
 
 * [Overview](#overview)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Configuration](#configuration)
-* [Methods](#methods)
 * [Contributing](#contributing)
 * [License](#license)
 
@@ -40,31 +43,63 @@ require 'sonic_pass'
 You can then generate a password using the `SonicPass.generate` method:
 
 ```ruby
-password = SonicPass.generate(length: 12)
+password = SonicPass.generate
 puts password
+# cpzmh3OV\",C7
 ```
 
-This will output a strong password of the specified length.
-
-### Configuration
-
-The Sonic Pass gem can be configured to use different character sets for password generation. The available character sets are:
-
-* `ALPHANUMERIC_CHARSETS`: A combination of uppercase letters, lowercase letters, and digits.
-* `SPECIAL_CHARSETS`: A set of special characters.
-
-You can specify the character set to use when generating a password:
+Or you can generate multiple passwords, using `count > 1` params
 
 ```ruby
-password = SonicPass.generate(length: 12, charset: SonicPass::ALPHANUMERIC_CHARSETS)
-puts password
+passwords = SonicPass.generate(12, 5)
+puts passwords
+# ,Y36.9H-XqS;
+# vRzCyIq.=$W5
+# 1}-'D*'ya$Vg
+# %66db&y$rjhU
+# x';2I7y$<&5f
 ```
 
-### Methods
+### How to use CLI command `sonic_pass`
 
-The Sonic Pass gem provides the following methods:
+- Put executable path into `PATH` directly
 
-* `SonicPass.generate(length: 12, charset: SonicPass::ALPHANUMERIC_CHARSETS)`: Generates a strong password of the specified length using the specified character set.
+```bash
+gem_bin_path=$(gem env | grep "EXECUTABLE DIRECTORY" | awk -F ': ' '{print $2}')
+export PATH="$PATH:$gem_bin_path"
+```
+
+- Put executable path into `PATH` in the appropriate configuration file
+
+Assume executable path is: `/home/user/.asdf/installs/ruby/3.0.0/bin`
+
+For bash (usually ~/.bashrc or ~/.bash_profile):
+
+```bash
+echo 'export PATH="$PATH:/home/user/.asdf/installs/ruby/3.0.0/bin"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+
+For zsh (usually ~/.zshrc):
+
+```bash
+echo 'export PATH="$PATH:/home/user/.asdf/installs/ruby/3.0.0/bin"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+Verify the change: After updating your configuration file, you can check if the new path has been added by running:
+
+```bash
+echo $PATH
+```
+
+Finally, run CLI command:
+
+```bash
+sonic_pass
+# Password: mM>]3ERLlD5L copied to clipboard
+```
 
 ### Contributing
 

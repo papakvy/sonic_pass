@@ -11,8 +11,8 @@ passwords = SonicPass.generate(length, count)
 
 # Copy the generated password to the clipboard
 if count == 1
-  Clipboard.copy(passwords[0])
-  puts "Password: #{passwords[0]} copied to clipboard"
+  Clipboard.copy(passwords)
+  puts "Password: #{passwords} copied to clipboard"
 else
   puts passwords.join("\n")
 end

@@ -20,6 +20,8 @@ module SonicPass
   # @param count [Integer] The number of passwords to generate. Defaults to 1.
   # @return [Array<String>] An array of strong passwords of the specified length.
   def self.generate(length = 12, count = 1)
-    Array.new(count) { (Array.new(length) { CHARSETS.sample }).join }
+    passwords = Array.new(count) { (Array.new(length) { CHARSETS.sample }).join }
+
+    count == 1 ? passwords[0] : passwords
   end
 end
