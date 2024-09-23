@@ -1,7 +1,8 @@
-![Gem](https://img.shields.io/gem/v/sonic_pass?color=%25234cc61f&label=Gem%20version&logo=ruby&logoColor=red&link=https%3A%2F%2Frubygems.org%2Fgems%2Fsonic_pass)
-![Gem](https://img.shields.io/gem/dt/sonic_pass?color=%2330c754&label=Downloads&logo=rubygems&logoColor=red&link=https%3A%2F%2Frubygems.org%2Fgems%2Fsonic_pass)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/papakvy/sonic_pass/main.yml?branch=master&logo=rubocop&logoColor=red&label=Rubocop%20Lint)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/papakvy/sonic_pass/main.yml?branch=master&logo=rubocop&logoColor=red&label=Tests%20%F0%9F%A7%AA)
+![Ruby version](https://img.shields.io/badge/ruby-%3E%3D2.4.0-brightgreen?logo=ruby&logoColor=red)
+![RubyGem version](https://img.shields.io/gem/v/sonic_pass?color=%25234cc61f&label=Gem%20version&logo=rubygems&logoColor=red&link=https%3A%2F%2Frubygems.org%2Fgems%2Fsonic_pass)
+![RubyGem download](https://img.shields.io/gem/dt/sonic_pass?color=%2330c754&label=Downloads&logo=rubygems&logoColor=red&link=https%3A%2F%2Frubygems.org%2Fgems%2Fsonic_pass)
+![Rubocop](https://img.shields.io/github/actions/workflow/status/papakvy/sonic_pass/main.yml?branch=master&logo=rubocop&logoColor=red&label=Rubocop%20Lint)
+![Test](https://img.shields.io/github/actions/workflow/status/papakvy/sonic_pass/main.yml?branch=master&logo=rubocop&logoColor=red&label=Tests%20%F0%9F%A7%AA)
 
 Table of Contents
 -----------------
@@ -43,8 +44,10 @@ require 'sonic_pass'
 You can then generate a password using the `SonicPass.generate` method:
 
 ```ruby
-password = SonicPass.generate
+# Default `length = 12`
+password = SonicPass.generate # equals `SonicPass.generate(12)`
 puts password
+
 # cpzmh3OV\",C7
 ```
 
@@ -53,6 +56,7 @@ Or you can generate multiple passwords, using `count > 1` params
 ```ruby
 passwords = SonicPass.generate(12, 5)
 puts passwords
+
 # ,Y36.9H-XqS;
 # vRzCyIq.=$W5
 # 1}-'D*'ya$Vg
@@ -97,7 +101,8 @@ echo $PATH
 Finally, run CLI command:
 
 ```bash
-sonic_pass
+$ sonic_pass
+
 # Password: mM>]3ERLlD5L copied to clipboard
 ```
 

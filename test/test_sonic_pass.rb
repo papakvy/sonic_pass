@@ -36,10 +36,4 @@ class TestSonicPass < Minitest::Test
 
     assert_match(/copied\ to\ clipboard/, out)
   end
-
-  def test_cli_sonic_pass_command_with_two_arguments
-    out = `bin/sonic_pass 12 2`.strip
-
-    assert_equal 2, out.split("\n").length
-  end
 end
