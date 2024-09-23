@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require_relative '../lib/sonic_pass'
+require_relative '../cli_ext/base'
 require 'clipboard'
 
 length = ARGV[0] ? ARGV[0].to_i : 12
@@ -9,10 +10,14 @@ count  = ARGV[1] ? ARGV[1].to_i : 1
 
 passwords = SonicPass.generate(length, count)
 
-# Copy the generated password to the clipboard
 if count == 1
   Clipboard.copy(passwords)
   puts "Password: #{passwords} copied to clipboard"
 else
-  puts passwords.join("\n")
+  begin
+    # puts "#{count} passwords generated:"
+    SonicPass::CLI.call(passwords)
+  rescue StandardError => _e
+    puts passwords.join("\n")
+  end
 end

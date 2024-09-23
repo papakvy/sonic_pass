@@ -12,9 +12,8 @@ Gem::Specification.new do |spec|
   spec.description = 'Generate strong passwords quickly and easily.'
   spec.homepage = 'https://github.com/papakvy/sonic_pass'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 3.0.0'
-
-  # spec.metadata['allowed_push_host'] = ''
+  # spec.required_ruby_version = '>= 2.0'
+  spec.required_ruby_version = '>= 2.4.0'
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/papakvy/sonic_pass'
@@ -36,7 +35,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   # Uncomment to register a new dependency of your gem
-  spec.add_dependency 'clipboard'
+  spec.add_dependency 'clipboard', '>= 1.0.0'
+  spec.add_dependency 'terminal-table' #, '>= 1.0.0'
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html

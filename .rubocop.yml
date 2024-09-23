@@ -8,12 +8,9 @@ inherit_gem:
   rubocop-rake:
     - config/default.yml
 
+# Rake:
+#   Enabled: true
+
 AllCops:
-  TargetRubyVersion: 3.x
+  DisabledByDefault: true
   NewCops: enable
-
-# Style/StringLiterals:
-#   EnforcedStyle: double_quotes
-
-# Style/StringLiteralsInInterpolation:
-#   EnforcedStyle: double_quotes
